@@ -16,41 +16,19 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// HellScape movement system
+// Bullet collision
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaxMovement : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-  void Start()
-  {
-    // Debug.Log("MaxMovement.cs");
-  }
+    // collision.contact
+    public GameObject hitEffect;
 
-  public float moveSpeed = 5f;
-  public Rigidbody2D rb;
-  Vector2 movement;
-
-
-    // Update is called once per frame
-    void Update()
-    {
-      // Input
-      movement.x = Input.GetAxisRaw("Horizontal");
-      movement.y = Input.GetAxisRaw("Vertical");
-      
-      // Follow Mouse
-      Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-      transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
-
-
+    void OnCollisionEnter2D(Collision2D collision) {
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+        Destroy(gameObject);
     }
-
-    void FixedUpdate()
-    {
-      // Movement
-      rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-      }
-    }
+}

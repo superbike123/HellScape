@@ -16,41 +16,28 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// HellScape movement system
+// HellScape gun
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaxMovement : MonoBehaviour
+public class MaxGun : MonoBehaviour
 {
-  void Start()
-  {
-    // Debug.Log("MaxMovement.cs");
-  }
+    public Transform Fire;
+    public GameObject bulletPrefab;
 
-  public float moveSpeed = 5f;
-  public Rigidbody2D rb;
-  Vector2 movement;
-
+    public float bulletForce = 20f;
 
     // Update is called once per frame
     void Update()
     {
-      // Input
-      movement.x = Input.GetAxisRaw("Horizontal");
-      movement.y = Input.GetAxisRaw("Vertical");
-      
-      // Follow Mouse
-      Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-      transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
-
-
+        if (Input.GetButtonDown("Fire1")) {
+            createBullet();
+        }
     }
-
-    void FixedUpdate()
-    {
-      // Movement
-      rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-      }
+    void createBullet() {
+        GameObject bullet = Instantiate(bulletPrefab, Fire.position, Fire.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(Fire.up*bulletForce,ForceMode2D.Impulse);
     }
+}
