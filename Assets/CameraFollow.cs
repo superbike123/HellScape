@@ -1,6 +1,6 @@
 /*
 HellScape
-Copyright (C) 2021  superbike
+Copyright (C) 2022  superbike
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,8 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // HellScape camera system
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
-{
+public class CameraFollow : MonoBehaviour {
     void Start() {
       // Debug.Log("CameraFollow.cs")
     }

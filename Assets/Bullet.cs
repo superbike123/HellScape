@@ -1,6 +1,6 @@
 /*
 HellScape
-Copyright (C) 2021  superbike
+Copyright (C) 2022  superbike
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
     // stuff
     void OnCollisionEnter2D(Collision2D collision) {
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+        Destroy(effect, 0.3f); // 0.3 seconds is how many seconds it will take before the effect is destroyed
         Destroy(gameObject);
     }
 }

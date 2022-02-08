@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1755247705594485470}
   - component: {fileID: 2372079292380812769}
   - component: {fileID: 5952733737488118261}
+  - component: {fileID: 4661374475606606451}
   m_Layer: 0
   m_Name: WillBallBullet
   m_TagString: Untagged
@@ -144,4 +145,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c13e8ac59bacf846be0c408cfafe923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 2824158358445970929, guid: adc938e6c38855f4b81a21cd9b907394, type: 3}
+--- !u!95 &4661374475606606451
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156805445942107902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1b3ae44f9322b841b7b22c9b81ee326, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

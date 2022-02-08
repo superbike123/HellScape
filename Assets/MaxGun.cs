@@ -1,6 +1,6 @@
 /*
 HellScape
-Copyright (C) 2021  superbike
+Copyright (C) 2022  superbike
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,25 +17,35 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // HellScape gun
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MaxGun : MonoBehaviour
 {
+    public string weaponName;
+    public int time = 1000;
+    public const float zero = 0f;
+    public float pistolCharge = 1.0f;
     public Transform Fire;
     public GameObject bulletPrefab;
-
     public float bulletForce = 20f;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            pistolCharge = 0.0f;
+            Debug.Log("Charge Depleted");
             createBullet();
+            Debug.Log("Created Bullet");
         }
     }
-    void createBullet() {
+    void createBullet() 
+    {
         GameObject bullet = Instantiate(bulletPrefab, Fire.position, Fire.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(Fire.up*bulletForce,ForceMode2D.Impulse);
