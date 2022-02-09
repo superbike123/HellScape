@@ -31,9 +31,6 @@ public class MaxMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     Vector2 movement;
-    //private float move = 0f;
-    private float moveH = 0f;
-    private float moveV = 0f;
 
 
     // Update is called once per frame
@@ -42,11 +39,10 @@ public class MaxMovement : MonoBehaviour
         // Input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        //move = Input.GetAxisRaw("Vertical") * moveSpeed;
-        moveH = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        moveV = Input.GetAxisRaw("Vertical") * moveSpeed;
-        animator.SetFloat("Speed", Mathf.Abs(moveH));
-        animator.SetFloat("Speed", Mathf.Abs(moveV));
+
+        animator.SetFloat("SpeedH", movement.x);
+        animator.SetFloat("SpeedV", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
 
 
         // Follow Mouse
