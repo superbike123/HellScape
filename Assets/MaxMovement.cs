@@ -27,6 +27,7 @@ public class MaxMovement : MonoBehaviour
   {
     // Debug.Log("MaxMovement.cs");
   }
+    public int health;
     public Animator animator;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
@@ -48,7 +49,6 @@ public class MaxMovement : MonoBehaviour
         // Follow Mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
-
 
     }
 
