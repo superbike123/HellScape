@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6c13e8ac59bacf846be0c408cfafe923
+guid: 170288b78db0eec489cf657b74c77a17
+timeCreated: 1465070431
+licenseType: Store
 MonoImporter:
-  externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - hitEffect: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

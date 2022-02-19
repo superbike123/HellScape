@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
     // stuff
     void OnCollisionEnter2D(Collision2D collision) {
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 0.3f); // 0.3 seconds is how many seconds it will take before the effect is destroyed
+        Destroy(effect, 0.25f);
         Destroy(gameObject);
     }
 }

@@ -16,29 +16,37 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// HellScape gun
-using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
 
-public class MaxGun : MonoBehaviour
+public class smg : MonoBehaviour
 {
+    [SerializeField] private MaxGun basicGun;
     public string weaponName;
+    public float bulletForce = 20f;
     public Transform Fire;
     public GameObject bulletPrefab;
-    public float bulletForce = 20f;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {  createBullet();  }
+        if(Input.GetButton("Fire1"))
+        {
+            createSMGBullet();
+
+        }
     }
-    public void createBullet() 
+    public void createSMGBullet() 
     {
-        CameraShaker.Instance.ShakeOnce(1.5f,2f,.1f,1);
+        CameraShaker.Instance.ShakeOnce(2f,2f,.1f,1);
         GameObject bullet = Instantiate(bulletPrefab, Fire.position, Fire.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(Fire.up*bulletForce,ForceMode2D.Impulse);
