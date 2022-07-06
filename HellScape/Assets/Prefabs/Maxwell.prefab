@@ -272,8 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Regular Pistol
-  time: 1000
-  pistolCharge: 1
   Fire: {fileID: 9058451387841742001}
   bulletPrefab: {fileID: 156805445942107902, guid: 636a115bc15f34147b3daebba91f2d2f, type: 3}
   bulletForce: 20

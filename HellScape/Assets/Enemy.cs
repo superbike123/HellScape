@@ -1,7 +1,7 @@
 /*
 HellScape
 
-Copyright 2022 superbike
+Copyright 2022 superbike 
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,20 +20,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public string weaponName;
+  
+    public int health; // 5, 10, 20, 30, 50
+    public int expToGive;
+    public Animator animator;
+    public float moveSpeed;
+    public Rigidbody2D rb;
+    Vector2 movement;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+      // Debug.Log("Enemy.cs");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    // When collides with bullet
+    void OnCollisionEnter2D(Collision2D targetObj)
+    {
+        // bullet collision
+        if (targetObj.gameObject.tag == "bullet")
+        {
+            Debug.Log("Bullet hit Enemy");
+            Destroy(targetObj.gameObject);
+        }
+
     }
 }
