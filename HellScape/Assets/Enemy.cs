@@ -29,16 +29,8 @@ public class Enemy : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     Vector2 movement;
-
-    void Start()
-    {
-      // Debug.Log("Enemy.cs");
-    }
-
-    void Update()
-    {
-
-    }
+    [SerializeField] private MaxGun MaxGun;
+    [SerializeField] private Maxwell Maxwell;
 
     // When collides with bullet
     void OnCollisionEnter2D(Collision2D targetObj)
@@ -46,9 +38,15 @@ public class Enemy : MonoBehaviour
         // bullet collision
         if (targetObj.gameObject.tag == "bullet")
         {
-            Debug.Log("Bullet hit Enemy");
+            // Debug.Log("Bullet hit Enemy");
+            health = health - MaxGun.damage;
+            if (health < 0)
+            {
+                health = 0;
+                Destroy(this.gameObject); // kill the enemy
+            }
+            // Debug.Log(health);
             Destroy(targetObj.gameObject);
         }
-
     }
 }
